@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	<bean id="SessionManager" class="com.taobao.ad.easyschedule.exsession.request.session.DefaultSessionManager" init-method="init">
+
+		<!-- 缺省的属性 -->
+		<property name="defaultConfig">
+			<map>
+				<entry>
+					<key>
+						<value>domain</value>
+					</key>
+					<value>${config.domain}</value>
+				</entry>
+				<entry>
+					<key>
+						<value>lifeCycle</value>
+					</key>
+					<value>-1</value>
+				</entry>
+			</map>
+		</property>
+
+		<!-- 各个KEY的属性 -->
+		<property name="originSessionAttrsMap">
+			<map>
+				<entry key="sessionID">
+					<props>
+						<prop key="nickKey">es1</prop>
+						<prop key="isEncrypt">false</prop>
+						<prop key="isBase64">false</prop>
+					</props>
+				</entry>
+				<entry key="logname">
+					<props>
+						<prop key="nickKey">es2</prop>
+						<prop key="isEncrypt">true</prop>
+						<prop key="isBase64">true</prop>
+					</props>
+				</entry>
+				<entry key="nickname">
+					<props>
+						<prop key="nickKey">es3</prop>
+						<prop key="isEncrypt">true</prop>
+						<prop key="isBase64">true</prop>
+					</props>
+				</entry>
+				<entry key="struts.token.name">
+					<props>
+						<prop key="nickKey">es4</prop>
+						<prop key="isEncrypt">true</prop>
+						<prop key="isBase64">true</prop>
+					</props>
+				</entry>
+				<entry key="struts.token">
+					<props>
+						<prop key="nickKey">es5</prop>
+						<prop key="isEncrypt">true</prop>
+						<prop key="isBase64">true</prop>
+					</props>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

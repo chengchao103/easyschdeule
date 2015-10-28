@@ -1,0 +1,144 @@
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','clientRetries','0','任务失败在客户端重试次数',32);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','completeTime','30000','异步任务最大超时时间',20);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','connTimeout','3000','任务超时时间(毫秒)',30);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','dataSource','esDSOracle','数据源',7);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','dataSourceType','1','数据源类型',16);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isEqual','5','等于某值开始告警(优先级:1)',4);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isEqualLevel1','4','警告级别：等于该值告警(优先级:1)',4);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isEqualLevel2','7','错误级别：等于该值告警(优先级:1)',7);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isGreaterEqual','7','大于等于某值开始告警(优先级:3)',6);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isGreaterEqualLevel1','6','警告级别：大于等于该值告警(优先级:3)',6);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isGreaterEqualLevel2','9','错误级别：大于等于该值告警(优先级:3)',9);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isLessEqual','6','小于等于某值开始告警(优先级:2)',5);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isLessEqualLevel1','5','警告级别：小于等于该值告警(优先级:2)',5);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','isLessEqualLevel2','8','错误级别：小于等于该值告警(优先级:2)',8);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','repeatAlarmNum','0','任务失败后，每5分钟进行重复告警的次数',35);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','retries','0','任务失败重试次数',31);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','synchronous','true','任务执行方式（是：同步；否：异步）',2);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','targetUrl','http://127.0.0.1/esagent/doDTJob','任务调用地址',1);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('DATATRACKINGJOB_JOBDATA','trackingSql','select trunc(dbms_random.value(0, 50)) from dual','trackingSql',3);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','checkResult','true','任务是否需要验证返回的结果',12);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','completeTime','30000','异步任务完成时间',20);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','connTimeout','3000','任务超时时间(毫秒)',30);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','parameter','a=1&=2','任务附加参数',3);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','repeatAlarmNum','0','任务失败后，每5分钟进行重复告警的次数',35);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','retries','0','任务失败重试次数',31);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','runType','hash','concurrent多个URL同时触发,hash随机选择一个',15);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','synchronous','true','任务执行方式（是：同步；否：异步）',2);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','targetUrl','http://127.0.0.1/es/testDoStdJob','任务调用地址',1);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('HTTPJOB_JOBDATA','tokenValidate','true','任务签名验证',11);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('JOB_GROUP','110','110 - EasySchedule','110 - EasySchedule',110);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','clientRetries','0','任务失败在客户端重试次数',32);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','completeTime','30000','异步任务最大超时时间',20);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','fileFullName','c:/test.txt','监控文件全名',3);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','isEqualLevel1','4','警告级别：等于该值告警(优先级:1)',4);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','isEqualLevel2','7','错误级别：等于该值告警(优先级:1)',7);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','isGreaterEqualLevel1','6','警告级别：大于等于该值告警(优先级:3)',6);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','isGreaterEqualLevel2','9','错误级别：大于等于该值告警(优先级:3)',9);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','isLessEqualLevel1','5','警告级别：小于等于该值告警(优先级:2)',5);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','isLessEqualLevel2','8','错误级别：小于等于该值告警(优先级:2)',8);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','repeatAlarmNum','0','任务失败后，每5分钟进行重复告警的次数',32);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','retries','0','任务失败重试次数',31);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','synchronous','true','任务执行方式（是：同步；否：异步）',2);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('LINECOUNTJOB_JOBDATA','targetUrl','http://127.0.0.1:1212/esagent/doLineCountJob','任务调用地址,多个用逗号分隔',1);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','checkResult','true','任务是否需要验证返回的结果',12);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','completeTime','30000','异步任务完成时间',20);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','connectionType','0','连接类型（0：短连接；1：长连接）',3);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','connTimeout','3000','任务超时时间(毫秒)',30);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','invokeType','mina,http','选择shell的执行类型',15);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','jobCommand','cd ..','shell任务指令',5);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','repeatAlarmNum','0','任务失败后，每5分钟进行重复告警的次数',35);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','retries','0','任务失败重试次数',31);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','runType','hash','concurrent多个URL同时触发,hash随机选择一个',13);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','synchronous','true','任务执行方式（是：同步；否：异步）',2);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','targetUrl','http://127.0.0.1/esagent/doShellJob','任务调用地址',1);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('SHELLJOB_JOBDATA','tokenValidate','true','任务签名验证',11);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('STOREDPROCEDURE_JOBDATA','jndiName','easyScheduleDataSource','jndi数据源',1);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('STOREDPROCEDURE_JOBDATA','storedProcedureCall','call','存储过程调用函数,都以call开头',2);
+insert  into `es_code`(`CODEKEY`,`KEYCODE`,`KEYNAME`,`KEYDESC`,`SORTNUM`) values ('STOREDPROCEDURE_JOBDATA','synchronous','true','任务执行方式(同步：true；异步：false)',3);
+
+
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('INSTANCE_CONTROL_INTERFACE','http://#instance#:1212/es/','实例控制接口');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_CRONEXPRESSION','0 0 8 * * ?','任务默认参数：触发规则');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_NOTIFY_FINISHED_MSG',',已经处理完成','任务处理完成消息模板');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_NOTIFY_WAITING_MSG',',披星戴月马不停蹄地处理中','任务处理中消息模板');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_PRIORITY','4','任务默认参数：任务触发优先级');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_REPEATCOUNT','4','任务默认参数：简单任务重复次数');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_REPEATINTERVAL','16000','任务默认参数：简单任务重复间隔');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('JOB_DEFAULT_TRIGGERTYPE','Cron','任务默认参数：触发类型（Cron，Simple）');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('TBS_TOP_NOTIFY','true','顶部通告开关');
+insert  into `es_config`(`CONFIGKEY`,`CONFIGVALUE`,`DESCRIPTION`) values ('TBS_TOP_NOTIFY_MSG','<div id=\"t\" style=\"position:absolute;left:25%; width:50%; padding:6px 6px 6px 40px; border:1px #ff9933 solid; background:url(/tbs/share/images/smiley.png) no-repeat left; background-color:#ffffee; line-height:18px;font-size:12px;\">','tbs-interface1.1.0.jar 已发布，支持异步回调容灾及客户端任务重试策略，请大家及时更新！任何疑问联系：柏林，白眉</div><script type=\"text/javascript\">$(\"#t\").hide();$(\"#t\").slideDown(500);</script>');
+
+
+insert  into `es_locks`(`LOCK_NAME`) values ('CALENDAR_ACCESS');
+insert  into `es_locks`(`LOCK_NAME`) values ('JOB_ACCESS');
+insert  into `es_locks`(`LOCK_NAME`) values ('MISFIRE_ACCESS');
+insert  into `es_locks`(`LOCK_NAME`) values ('STATE_ACCESS');
+insert  into `es_locks`(`LOCK_NAME`) values ('TRIGGER_ACCESS');
+
+
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (1,NULL,'URL','新增测试任务',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (2,NULL,'URL','添加任务',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (3,NULL,'URL','添加数据监控',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (4,NULL,'URL','立即执行任务',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (5,NULL,'URL','恢复触发器',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (6,NULL,'URL','暂停触发器',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (7,NULL,'URL','启动触发器',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (8,NULL,'URL','删除任务',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (9,NULL,'URL','删除所有日志',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (11,NULL,'URL','新增用户',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (12,NULL,'URL','删除用户',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (14,NULL,'URL','新增配置',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (16,NULL,'URL','修改配置',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (18,NULL,'URL','更新其他配置',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (19,NULL,'URL','删除配置',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (21,NULL,'URL','新增编码',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (23,NULL,'URL','更新编码',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (24,NULL,'URL','删除编码',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (25,NULL,'URL','启动实例',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (26,NULL,'URL','停止实例',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (27,NULL,'URL','暂停实例',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (28,NULL,'URL','安全停止实例',1,NULL,NULL,NULL);
+insert  into `es_u_resc`(`ID`,`NAME`,`RES_TYPE`,`RES_STRING`,`PRIORITY`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (29,NULL,'URL','更新用户',1,NULL,NULL,NULL);
+
+
+
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (1,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (2,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (3,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (4,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (5,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (6,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (7,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (8,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (9,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (11,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (12,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (14,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (16,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (18,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (19,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (21,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (23,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (24,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (25,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (26,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (27,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (28,1);
+insert  into `es_u_resc_role`(`RESC_ID`,`ROLE_ID`) values (29,1);
+
+
+insert  into `es_u_role`(`ID`,`NAME`,`DESCN`) values (1,'ROLE_ADMIN','管理员');
+insert  into `es_u_role`(`ID`,`NAME`,`DESCN`) values (2,'ROLE_USER','用户');
+
+
+insert  into `es_u_user`(`ID`,`USERNAME`,`EMAIL`,`MOBILE`,`PASSWORD`,`STATUS`,`DESCN`,`CREATE_TIME`,`UPDATE_TIME`) values (1,'admin','xxx','1','eabd8ce9404507aa8c22714d3f5eada9',1,'管理员',now(),now());
+
+
+insert  into `es_u_user_group`(`USER_ID`,`GROUP_ID`) values (1,110);
+
+
+
+insert  into `es_u_user_role`(`USER_ID`,`ROLE_ID`) values (1,1);
+
+ 

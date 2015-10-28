@@ -1,0 +1,3 @@
+ID,OPTYPE,OPNAME,OPSUBTYPE,OPSUBNAME,OPDETAIL,OPUSER,OPTIME
+1048723,1,v039024.sqa.cm41336717573334,901,110|httpXXX1726,connTimeout:10000<br>parameter:a=1&=2<br>runType:hash<br>checkResult:true<br>retries:1<br>synchronous:true<br>completeTime:10000<br>tokenValidate:true<br>targetUrl:http://v039024.sqa.cm4.tbsite.net:1212/tbs/checkAsyncJobQueue.action<br>version:1<br>,SYS,2012-05-12 22:40:00
+1048724,1,v039024.sqa.cm41336717573334,901,110|httpXXX1726,connTimeout:10000<br>parameter:a=1&=2<br>runType:hash<br>checkResult:true<br>retries:1<br>synchronous:true<br>completeTime:10000<br>tokenValidate:true<br>targetUrl:http://v039024.sqa.cm4.tbsite.net:1212/tbs/checkAsyncJobQueue.action<br>version:1<br>,SYS,2012-05-12 22:40:00

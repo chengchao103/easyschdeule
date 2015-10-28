@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+<package name="com.taobao.ad.easyschedule.admin" extends="schedule-default">
+   
+    <!-- 登陆界面 -->
+    <action name="login" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="adminToLogin">
+	    <interceptor-ref name="scheduleNotLoginStack"/>
+		<result name="success">/WEB-INF/jsp/login.jsp</result>
+		<result name="error">/WEB-INF/jsp/login.jsp</result>
+	</action>
+	
+	<!-- 主框架 -->
+	<action name="main" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="viewMain">
+		<result name="success">/WEB-INF/jsp/main.jsp</result>
+		<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+	</action>
+	
+	<!-- 菜单 -->
+	<action name="menu" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="viewMenu">
+		<result name="success">/WEB-INF/jsp/menu.jsp</result>
+		<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+	</action>
+
+	<!-- 中间条 -->
+	<action name="middle" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="viewMiddle">
+		<result name="success">/WEB-INF/jsp/middle.jsp</result>
+		<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+	</action>
+
+	<!-- 顶部 -->
+	<action name="top" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="viewTop">
+	    <interceptor-ref name="scheduleStack"/>
+		<result name="success">/WEB-INF/jsp/top.jsp</result>
+		<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+	</action>
+	
+    <!-- 登陆 -->
+    <action name="adminLogin" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="adminLogin">
+        <interceptor-ref name="scheduleNotLoginStack"/>
+		<result name="success">/WEB-INF/jsp/main.jsp</result>
+		<result name="error">/WEB-INF/jsp/login.jsp</result>
+	</action>
+	
+	<!-- 首页 -->
+    <action name="index" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="index">
+        <interceptor-ref name="scheduleStack"/>
+		<result name="success">/WEB-INF/jsp/main.jsp</result>
+		<result name="mobile" type="redirect"><![CDATA[m/listJob]]></result>
+	</action>
+	
+	<!-- 退出 -->
+    <action name="adminLogout" class="com.taobao.ad.easyschedule.action.admin.AdminAction" method="adminLogout">
+		<result name="success">/WEB-INF/jsp/login.jsp</result>
+		<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+	</action>
+	
+</package>
+</struts>

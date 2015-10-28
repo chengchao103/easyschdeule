@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="schedule" namespace="/" extends="schedule-default">
+		<!-- 实例列表 -->
+		<action name="listInstance" class="scheduleAction" method="listInstance">
+			<result name="success">/WEB-INF/jsp/instance/listInstance.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<action name="startInstance" class="scheduleAction" method="startInstance">
+			<result name="success">/WEB-INF/jsp/instance/listInstance.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<action name="stopInstance" class="scheduleAction" method="stopInstance">
+			<result name="success">/WEB-INF/jsp/instance/listInstance.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<action name="pauseInstance" class="scheduleAction" method="pauseInstance">
+			<result name="success">/WEB-INF/jsp/instance/listInstance.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<action name="waitAndStopSchedulerInstance" class="scheduleAction" method="waitAndStopSchedulerInstance">
+			<result name="success">/WEB-INF/jsp/instance/listInstance.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<!-- 任务列表 -->
+		<action name="listJob" class="jobAction" method="listJob">
+			<result name="success">/WEB-INF/jsp/job/listJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 查看任务详情 -->
+		<action name="viewJob" class="addJobAction" method="viewJob">
+			<result name="success">/WEB-INF/jsp/job/viewJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 新增测试任务 -->
+		<action name="addTestJob" class="addJobAction" method="addTestJob">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="redirectAction">listJob</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 立即执行任务 -->
+		<action name="runJob" class="jobAction" method="runJob">
+			<result name="success" type="redirect"><![CDATA[listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 暂停任务 -->
+		<action name="pauseJob" class="jobAction" method="pauseJob">
+			<result name="success" type="redirect"><![CDATA[listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 恢复任务 -->
+		<action name="resumeJob" class="jobAction" method="resumeJob">
+			<result name="success" type="redirect"><![CDATA[listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<!-- 进入新增HTTP任务界面 -->
+		<action name="toAddHttpJob" class="addJobAction" method="toAddHttpJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 进入新增SHELL任务界面 -->
+		<action name="toAddShellJob" class="addJobAction" method="toAddShellJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 进入新增文件任务界面 -->
+		<action name="toAddLineCountJob" class="addJobAction" method="toAddLineCountJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 进入新增数据监控任务界面 -->
+		<action name="toAddDataTrackingJob" class="addJobAction" method="toAddDataTrackingJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 进入新增存储过程任务界面 -->
+		<action name="toAddProcedureJob" class="addJobAction" method="toAddProcedureJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 进入新增代理监控任务界面 -->
+		<action name="toAddAgentTrackingJob" class="addJobAction" method="toAddAgentTrackingJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 进入修改任务界面 -->
+		<action name="toUpdateJob" class="addJobAction" method="toUpdateJob">
+			<result name="success">/WEB-INF/jsp/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<!-- 新增任务 -->
+		<action name="addJob" class="addJobAction" method="addJob">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="redirect"><![CDATA[listJob?query.jobgroup=${jobDetail.group}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 删除一个任务 -->
+		<action name="deleteJob" class="jobAction" method="deleteJob">
+			<result name="success" type="redirect"><![CDATA[listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 查看监控数据 old -->
+		<action name="viewDataTracking" class="dataTrackingAction" method="getTrackingDisplayValue">
+			<!-- <result name="success">/WEB-INF/jsp/datatracking/viewDataTracking.jsp</result> -->
+			<result name="success">/WEB-INF/jsp/datatracking/viewDataTrackingNew.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+
+		<!-- 查看监控数据 详细数据 -->
+		<action name="viewTrackingDisplayJsonValue" class="dataTrackingAction" method="getTrackingDisplayJsonValue">
+		</action>
+
+		<!-- 触发器列表 -->
+		<action name="listTrigger" class="triggerAction" method="listTrigger">
+			<result name="success">/WEB-INF/jsp/trigger/triggerlist.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 异步任务列表 -->
+		<action name="listAsyncJobQueues" class="asyncJobQueueAction" method="listAsyncJobQueues">
+			<result name="success">/WEB-INF/jsp/asyncjobqueue/listAsyncJobQueue.jsp</result>
+		</action>
+		<!-- 报警重试队列 -->
+		<action name="listRepeatAlarm" class="repeatAlarmAction" method="listRepeatAlarm">
+			<result name="success">/WEB-INF/jsp/job/listRepeatAlarm.jsp</result>
+		</action>
+		<!-- 任务订阅 -->
+		<action name="listSub" class="userSubAction" method="listSub">
+			<result name="success">/WEB-INF/jsp/job/listSub.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 手动发送任务处理消息(通知订阅页面) -->
+		<action name="sendSubMsg" class="userSubAction" method="sendSubMsg">
+			<result name="success" type="redirect"><![CDATA[listSub?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		<!-- 手动发送任务处理消息(重复告警页面) -->
+		<action name="sendMsgAndProcessRepeatAlarm" class="repeatAlarmAction" method="sendMsgAndProcessRepeatAlarm">
+			<result name="success" type="redirect"><![CDATA[listRepeatAlarm?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+	</package>
+
+	<package name="scheduleAjax" extends="schedule-json-default">
+		<!-- 异步任务回调 -->
+		<action name="completeJob" class="asynJobAction" method="completeJob">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">jobResult</param>
+			</result>
+		</action>
+		<!--重复告警检测 -->
+		<action name="checkRepeatAlarm" class="repeatAlarmAction" method="checkRepeatAlarm">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">jobResult</param>
+			</result>
+		</action>
+		<!-- 异步任务队列检查 -->
+		<action name="checkAsyncJobQueue" class="asynJobAction" method="checkAsyncJobQueue">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">jobResult</param>
+			</result>
+		</action>
+		<!-- 订阅或取消订阅 -->
+		<action name="addUserSubAjax" class="userSubAction" method="addUserSub">
+			<result name="success" type="json">
+				<param name="root">ajaxResult</param>
+			</result>
+		</action>
+		<!-- 获取实例信息 -->
+		<action name="getInstanceAjax" class="localScheduleAction" method="getInstanceAjax">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">schedulerDTO</param>
+			</result>
+		</action>
+		<!-- 启动实例 -->
+		<action name="startInstanceAjax" class="localScheduleAction" method="startInstanceAjax">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 暂停实例 -->
+		<action name="pauseInstanceAjax" class="localScheduleAction" method="pauseInstanceAjax">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 停止实例 -->
+		<action name="stopInstanceAjax" class="localScheduleAction" method="stopInstanceAjax">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 安全停止实例 -->
+		<action name="waitAndStopSchedulerInstanceAjax" class="localScheduleAction" method="waitAndStopSchedulerInstanceAjax">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 立即执行任务(自动化测试使用) -->
+		<action name="runJobForTest" class="jobAction" method="runJobForTest">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>

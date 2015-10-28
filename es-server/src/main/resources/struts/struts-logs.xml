@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="log" extends="schedule-default">
+		<action name="listLog" class="logAction" method="listLog">
+			<result name="success">/WEB-INF/jsp/logs/listLog.jsp</result>
+		</action>
+
+		<action name="viewAddLog" class="logAction" method="viewAddLog">
+			<result name="success">/WEB-INF/jsp/logs/addLog.jsp</result>
+		</action>
+
+		<action name="addLog" class="logAction" method="addLog">
+			<result name="success" type="chain">
+				<param name="actionName">listLog</param>
+			</result>
+		</action>
+
+		<action name="viewUpdateLog" class="logAction" method="viewUpdateLog">
+			<result name="success">/WEB-INF/jsp/logs/updateLog.jsp</result>
+		</action>
+
+		<action name="updateLog" class="logAction" method="updateLog">
+			<result name="success" type="chain">
+				<param name="actionName">listLog</param>
+			</result>
+		</action>
+
+		<action name="deleteLog" class="logAction" method="deleteLog">
+			<result name="success" type="chain">
+				<param name="actionName">listLog</param>
+			</result>
+		</action>
+
+		<action name="deleteAllLogs" class="logAction" method="deleteAllLog">
+			<result name="success" type="chain">
+				<param name="actionName">listLog</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="logsMoblie" namespace="/m" extends="schedule-default">
+		<action name="listLog" class="logAction" method="listLog">
+			<result name="success">/WEB-INF/jsp/mobile/logs/listLog.jsp</result>
+		</action>
+	</package>
+
+
+	<package name="logsAjax" extends="schedule-json-default">
+		<!-- 获取所有任务组|名称-->
+		<action name="findAllJobGroupAndName" class="logAction" method="findAllJobGroupAndName">
+ 			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+	</package>
+
+</struts>

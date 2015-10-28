@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+/*************************************************GLOBALS***/
+body,div,form,p,img,ul,li,h1,h2,h3,h4,h5,h6,dl,dt,dd,textarea {
+	margin: 0;
+	padding: 0;
+	line-height: 21px;
+}
+
+body {
+	color: #000;
+	font-size: 12px;
+	font-family: "宋体";
+}
+
+input,select {
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+table,img {
+	border: 0;
+}
+
+ul,dl {
+	overflow: hidden;
+	zoom: 1;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: #0041d9;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f60;
+	text-decoration: underline;
+}
+
+.l {
+	float: left;
+}
+
+.r {
+	float: right;
+}
+
+.c {
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.z {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.tal {
+	text-align: left;
+}
+
+.tar {
+	text-align: right;
+}
+
+.tac {
+	text-align: center;
+}
+
+/*************************************************HEADER***/
+.bdt {
+	background: #111b4c url(../images/bg.jpg) top left no-repeat;
+}
+
+#header {
+	height: 62px;
+	padding: 5px;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.logo {
+	float: left;
+	padding-top: 8px;
+}
+
+.account {
+	float: right;
+	padding-top: 22px;
+	color: #fff;
+}
+
+.account a {
+	color: #fff;
+}
+
+.account select {
+	width: 150px;
+}
+
+.account img {
+	padding: 0 6px;
+}
+
+/*************************************************MAIN***/
+#main {
+	
+}
+
+.bw {
+	border: 1px solid #445A7F;
+	background: #FFFFFF;
+}
+
+.bn {
+	border: 1px solid #B8B8B8;
+	background: #417194;
+}
+
+.p4 {
+	padding: 4px;
+}
+
+#mainleft {
+	float: left;
+	width: 190px;
+	position: relative;
+	z-index: 3;
+}
+
+.ml_tt {
+	background: url(../images/ml_tt_bg.gif) top repeat-x;
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	padding-left: 4px;
+}
+
+#mll {
+	overflow: hidden;
+	zoom: 1;
+}
+
+#mll dl {
+	background: url(../images/ml_tl_bg.gif) top repeat-x;
+}
+
+#mll a {
+	color: #3B2D7B;
+	text-decoration: none;
+}
+
+#mll a:hover {
+	color: #000;
+}
+
+#mll dt,#mll dd {
+	padding: 5px;
+}
+
+#mll dt {
+	height: 16px;
+	line-height: 16px;
+	font-size: 14px;
+}
+
+#mll dt img {
+	padding: 0 5px;
+}
+
+#mll li a {
+	display: block;
+	width: 144px;
+	height: 25px;
+	line-height: 21px;
+	padding-left: 20px;
+	overflow: hidden;
+}
+
+#mll li a:hover {
+	background: url(../images/ml_ls_ho.gif) no-repeat;
+}
+
+#mll li.on {
+	background: url(../images/ml_ls_on.gif) no-repeat;
+}
+
+#mll li.on a {
+	color: #000;
+}
+
+#mainmiddle {
+	padding: 220px 0 0 2px;
+	cursor: pointer;
+}
+
+#mainright {
+	margin-left: 200px;
+	position: relative;
+	z-index: 1;
+}
+
+#mainright #mr_tt {
+	position: relative;
+	z-index: 9;
+	margin-bottom: -2px;
+	height: 22px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	padding: 6px 0 0 28px;
+	background: url(../images/mr_tt_bg.gif) top left no-repeat;
+}
+
+#mainright .bw {
+	position: relative;
+	z-index: 8;
+}
+
+/*************************************************LOGIN***/
+.login_bg {
+	background: #0a223c url(../images/login_bg.gif) top center repeat-x;
+}
+
+.login_crm,.login_sh {
+	width: 380px;
+	height: 230px;
+	overflow: hidden;
+	margin: auto;
+	margin-top: 180px;
+	background: url(../images/login_crm_bg.jpg) top no-repeat;
+}
+
+.login_sh {
+	background-image: url(../images/login_sh_bg.jpg);
+}
+
+.login_tb {
+	margin: 100px 0 0 30px;
+}
+
+.login_ip {
+	width: 170px;
+	height: 18px;
+	margin-right: 5px;
+	border: 1px solid #4f6269;
+}
+
+.login_sm {
+	width: 70px;
+	height: 49px;
+	overflow: hidden;
+	border: 0;
+	background: url(../images/login_bt.jpg) no-repeat;
+}
+
+.login_cp {
+	font: normal 9px Arial;
+	color: #4b5b6e;
+	text-align: center;
+	margin-top: 45px;
+}

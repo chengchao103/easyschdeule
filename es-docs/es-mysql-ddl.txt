@@ -1,0 +1,408 @@
+/*
+SQLyog 企业版 - MySQL GUI v8.14 
+MySQL - 5.1.48-log : Database - easyschedule
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`easyschedule` /*!40100 DEFAULT CHARACTER SET gbk */;
+
+USE `easyschedule`;
+
+/*Table structure for table `es_async_job_queue` */
+
+DROP TABLE IF EXISTS `es_async_job_queue`;
+
+CREATE TABLE `es_async_job_queue` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `JOB_GROUP` varchar(200) NOT NULL COMMENT '任务所属组',
+  `JOB_NAME` varchar(200) NOT NULL COMMENT '任务名称',
+  `SIGN_TIME` bigint(13) NOT NULL COMMENT '触发时间',
+  `WAIT_CALL_NUM` int(11) DEFAULT NULL COMMENT '等待回调的次数',
+  `COMPLETE_TIME` bigint(13) NOT NULL COMMENT '完成时间',
+  `STATUS` int(4) NOT NULL COMMENT '状态  -1:完成失败 0:未完成 1:完成成功',
+  `CREATETIME` datetime NOT NULL COMMENT '创建时间',
+  `UPDATETIME` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+
+/*Table structure for table `es_job_details` */
+
+DROP TABLE IF EXISTS `es_job_details`;
+
+CREATE TABLE `es_job_details` (
+  `JOB_NAME` varchar(200) NOT NULL,
+  `JOB_GROUP` varchar(200) NOT NULL,
+  `DESCRIPTION` varchar(250) DEFAULT NULL,
+  `JOB_CLASS_NAME` varchar(250) NOT NULL,
+  `IS_DURABLE` varchar(1) NOT NULL,
+  `IS_VOLATILE` varchar(1) NOT NULL,
+  `IS_STATEFUL` varchar(1) NOT NULL,
+  `REQUESTS_RECOVERY` varchar(1) NOT NULL,
+  `JOB_DATA` blob,
+  PRIMARY KEY (`JOB_NAME`,`JOB_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_triggers` */
+
+DROP TABLE IF EXISTS `es_triggers`;
+
+CREATE TABLE `es_triggers` (
+  `TRIGGER_NAME` varchar(200) NOT NULL,
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  `JOB_NAME` varchar(200) NOT NULL,
+  `JOB_GROUP` varchar(200) NOT NULL,
+  `IS_VOLATILE` varchar(1) NOT NULL,
+  `DESCRIPTION` varchar(250) DEFAULT NULL,
+  `NEXT_FIRE_TIME` bigint(13) DEFAULT NULL,
+  `PREV_FIRE_TIME` bigint(13) DEFAULT NULL,
+  `PRIORITY` int(11) DEFAULT NULL,
+  `TRIGGER_STATE` varchar(16) NOT NULL,
+  `TRIGGER_TYPE` varchar(8) NOT NULL,
+  `START_TIME` bigint(13) NOT NULL,
+  `END_TIME` bigint(13) DEFAULT NULL,
+  `CALENDAR_NAME` varchar(200) DEFAULT NULL,
+  `MISFIRE_INSTR` smallint(2) DEFAULT NULL,
+  `JOB_DATA` blob,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  KEY `JOB_NAME` (`JOB_NAME`,`JOB_GROUP`),
+  CONSTRAINT `es_triggers_ibfk_1` FOREIGN KEY (`JOB_NAME`, `JOB_GROUP`) REFERENCES `es_job_details` (`JOB_NAME`, `JOB_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_blob_triggers` */
+
+DROP TABLE IF EXISTS `es_blob_triggers`;
+
+CREATE TABLE `es_blob_triggers` (
+  `TRIGGER_NAME` varchar(200) NOT NULL,
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  `BLOB_DATA` blob,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  KEY `TRIGGER_NAME` (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  CONSTRAINT `es_blob_triggers_ibfk_1` FOREIGN KEY (`TRIGGER_NAME`, `TRIGGER_GROUP`) REFERENCES `es_triggers` (`TRIGGER_NAME`, `TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_calendars` */
+
+DROP TABLE IF EXISTS `es_calendars`;
+
+CREATE TABLE `es_calendars` (
+  `CALENDAR_NAME` varchar(200) NOT NULL,
+  `CALENDAR` blob NOT NULL,
+  PRIMARY KEY (`CALENDAR_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_code` */
+
+DROP TABLE IF EXISTS `es_code`;
+
+CREATE TABLE `es_code` (
+  `CODEKEY` varchar(64) NOT NULL,
+  `KEYCODE` varchar(64) NOT NULL,
+  `KEYNAME` varchar(128) DEFAULT NULL,
+  `KEYDESC` varchar(128) DEFAULT NULL,
+  `SORTNUM` int(12) DEFAULT NULL,
+  PRIMARY KEY (`CODEKEY`,`KEYCODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_config` */
+
+DROP TABLE IF EXISTS `es_config`;
+
+CREATE TABLE `es_config` (
+  `CONFIGKEY` varchar(64) NOT NULL,
+  `CONFIGVALUE` varchar(512) DEFAULT NULL,
+  `DESCRIPTION` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`CONFIGKEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_cron_triggers` */
+
+DROP TABLE IF EXISTS `es_cron_triggers`;
+
+CREATE TABLE `es_cron_triggers` (
+  `TRIGGER_NAME` varchar(200) NOT NULL,
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  `CRON_EXPRESSION` varchar(120) NOT NULL,
+  `TIME_ZONE_ID` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  KEY `TRIGGER_NAME` (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  CONSTRAINT `es_cron_triggers_ibfk_1` FOREIGN KEY (`TRIGGER_NAME`, `TRIGGER_GROUP`) REFERENCES `es_triggers` (`TRIGGER_NAME`, `TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_datatracking_log` */
+
+DROP TABLE IF EXISTS `es_datatracking_log`;
+
+CREATE TABLE `es_datatracking_log` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT,
+  `JOB_NAME` varchar(200) NOT NULL,
+  `JOB_GROUP` varchar(200) NOT NULL,
+  `TRACKING_VALUE` decimal(12,2) NOT NULL,
+  `CREATETIME` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_fired_triggers` */
+
+DROP TABLE IF EXISTS `es_fired_triggers`;
+
+CREATE TABLE `es_fired_triggers` (
+  `ENTRY_ID` varchar(95) NOT NULL,
+  `TRIGGER_NAME` varchar(200) NOT NULL,
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  `IS_VOLATILE` varchar(1) NOT NULL,
+  `INSTANCE_NAME` varchar(200) NOT NULL,
+  `FIRED_TIME` bigint(13) NOT NULL,
+  `PRIORITY` int(11) NOT NULL,
+  `STATE` varchar(16) NOT NULL,
+  `JOB_NAME` varchar(200) DEFAULT NULL,
+  `JOB_GROUP` varchar(200) DEFAULT NULL,
+  `IS_STATEFUL` varchar(1) DEFAULT NULL,
+  `REQUESTS_RECOVERY` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ENTRY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+
+/*Table structure for table `es_job_listeners` */
+
+DROP TABLE IF EXISTS `es_job_listeners`;
+
+CREATE TABLE `es_job_listeners` (
+  `JOB_NAME` varchar(200) NOT NULL,
+  `JOB_GROUP` varchar(200) NOT NULL,
+  `JOB_LISTENER` varchar(200) NOT NULL,
+  PRIMARY KEY (`JOB_NAME`,`JOB_GROUP`,`JOB_LISTENER`),
+  KEY `JOB_NAME` (`JOB_NAME`,`JOB_GROUP`),
+  CONSTRAINT `es_job_listeners_ibfk_1` FOREIGN KEY (`JOB_NAME`, `JOB_GROUP`) REFERENCES `es_job_details` (`JOB_NAME`, `JOB_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_job_user_sub` */
+
+DROP TABLE IF EXISTS `es_job_user_sub`;
+
+CREATE TABLE `es_job_user_sub` (
+  `JOB_GROUP` varchar(200) NOT NULL,
+  `JOB_NAME` varchar(200) NOT NULL,
+  `USER_ID` int(11) NOT NULL,
+  `TYPE` int(4) NOT NULL COMMENT '1=成功订阅 0=失败订阅',
+  `WANGWANG` smallint(2) NOT NULL,
+  `EMAIL` smallint(2) NOT NULL,
+  `MOBILE` smallint(2) NOT NULL,
+  `CREATETIME` datetime NOT NULL,
+  `UPDATETIME` datetime NOT NULL,
+  `CREATOR` int(11) NOT NULL,
+  `MODIFIER` int(11) DEFAULT NULL,
+  PRIMARY KEY (`JOB_GROUP`,`JOB_NAME`,`USER_ID`,`TYPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_locks` */
+
+DROP TABLE IF EXISTS `es_locks`;
+
+CREATE TABLE `es_locks` (
+  `LOCK_NAME` varchar(40) NOT NULL,
+  PRIMARY KEY (`LOCK_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_logs` */
+
+DROP TABLE IF EXISTS `es_logs`;
+
+CREATE TABLE `es_logs` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `OPTYPE` int(11) DEFAULT NULL,
+  `OPNAME` varchar(64) DEFAULT NULL,
+  `OPSUBTYPE` int(11) DEFAULT NULL,
+  `OPSUBNAME` varchar(64) DEFAULT NULL,
+  `OPDETAIL` varchar(1024) DEFAULT NULL,
+  `OPUSER` varchar(64) DEFAULT NULL,
+  `OPTIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_paused_trigger_grps` */
+
+DROP TABLE IF EXISTS `es_paused_trigger_grps`;
+
+CREATE TABLE `es_paused_trigger_grps` (
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  PRIMARY KEY (`TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_repeat_alarm` */
+
+DROP TABLE IF EXISTS `es_repeat_alarm`;
+
+CREATE TABLE `es_repeat_alarm` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `JOB_NAME` varchar(128) NOT NULL COMMENT '任务名称',
+  `JOB_GROUP` varchar(128) NOT NULL COMMENT '任务组',
+  `SIGN_TIME` bigint(30) NOT NULL COMMENT '任务失败时间',
+  `REPEAT_ALARM_NUM` int(12) NOT NULL COMMENT '报警重试次数',
+  `STATUS` int(4) NOT NULL COMMENT '状态 1：有效 0：无效',
+  `CREATE_TIME` datetime NOT NULL COMMENT '创建时间',
+  `UPDATE_TIME` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_report_job` */
+
+DROP TABLE IF EXISTS `es_report_job`;
+
+CREATE TABLE `es_report_job` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT,
+  `SUCCESS_NUM` int(12) NOT NULL,
+  `ERROR_NUM` int(12) NOT NULL,
+  `RT` decimal(10,2) NOT NULL,
+  `REPORT_TIME` datetime NOT NULL COMMENT '统计的报表时间',
+  `JOB_NUM` int(12) NOT NULL,
+  `STATUS` int(4) NOT NULL,
+  `CREATE_TIME` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_report_job_rt` */
+
+DROP TABLE IF EXISTS `es_report_job_rt`;
+
+CREATE TABLE `es_report_job_rt` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT,
+  `JOB_NAME` varchar(256) NOT NULL COMMENT '任务名称',
+  `JOB_GROUP` varchar(256) NOT NULL COMMENT '任务组',
+  `sync` varchar(5) NOT NULL,
+  `start_time` bigint(30) NOT NULL COMMENT '触发时间',
+  `end_time` bigint(30) DEFAULT NULL COMMENT '结束时间',
+  `RT` int(12) DEFAULT NULL COMMENT 'RT',
+  `STATUS` int(4) NOT NULL COMMENT '0：删除 1：完成 2：执行中 3：超时',
+  `CREATE_TIME` datetime NOT NULL COMMENT '创建时间',
+  `UPDATE_TIME` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_scheduler_state` */
+
+DROP TABLE IF EXISTS `es_scheduler_state`;
+
+CREATE TABLE `es_scheduler_state` (
+  `INSTANCE_NAME` varchar(200) NOT NULL,
+  `LAST_CHECKIN_TIME` bigint(13) NOT NULL,
+  `CHECKIN_INTERVAL` bigint(13) NOT NULL,
+  PRIMARY KEY (`INSTANCE_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_simple_triggers` */
+
+DROP TABLE IF EXISTS `es_simple_triggers`;
+
+CREATE TABLE `es_simple_triggers` (
+  `TRIGGER_NAME` varchar(200) NOT NULL,
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  `REPEAT_COUNT` bigint(7) NOT NULL,
+  `REPEAT_INTERVAL` bigint(12) NOT NULL,
+  `TIMES_TRIGGERED` bigint(10) NOT NULL,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  KEY `TRIGGER_NAME` (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  CONSTRAINT `es_simple_triggers_ibfk_1` FOREIGN KEY (`TRIGGER_NAME`, `TRIGGER_GROUP`) REFERENCES `es_triggers` (`TRIGGER_NAME`, `TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_trigger_listeners` */
+
+DROP TABLE IF EXISTS `es_trigger_listeners`;
+
+CREATE TABLE `es_trigger_listeners` (
+  `TRIGGER_NAME` varchar(200) NOT NULL,
+  `TRIGGER_GROUP` varchar(200) NOT NULL,
+  `TRIGGER_LISTENER` varchar(200) NOT NULL,
+  PRIMARY KEY (`TRIGGER_NAME`,`TRIGGER_GROUP`,`TRIGGER_LISTENER`),
+  KEY `TRIGGER_NAME` (`TRIGGER_NAME`,`TRIGGER_GROUP`),
+  CONSTRAINT `es_trigger_listeners_ibfk_1` FOREIGN KEY (`TRIGGER_NAME`, `TRIGGER_GROUP`) REFERENCES `es_triggers` (`TRIGGER_NAME`, `TRIGGER_GROUP`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+
+/*Table structure for table `es_u_resc` */
+
+DROP TABLE IF EXISTS `es_u_resc`;
+
+CREATE TABLE `es_u_resc` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(64) DEFAULT NULL,
+  `RES_TYPE` varchar(64) DEFAULT NULL,
+  `RES_STRING` varchar(256) DEFAULT NULL,
+  `PRIORITY` int(10) DEFAULT NULL,
+  `DESCN` varchar(256) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_u_resc_role` */
+
+DROP TABLE IF EXISTS `es_u_resc_role`;
+
+CREATE TABLE `es_u_resc_role` (
+  `RESC_ID` int(12) NOT NULL,
+  `ROLE_ID` int(12) NOT NULL,
+  PRIMARY KEY (`RESC_ID`,`ROLE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_u_role` */
+
+DROP TABLE IF EXISTS `es_u_role`;
+
+CREATE TABLE `es_u_role` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(64) NOT NULL,
+  `DESCN` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_u_user` */
+
+DROP TABLE IF EXISTS `es_u_user`;
+
+CREATE TABLE `es_u_user` (
+  `ID` int(12) NOT NULL AUTO_INCREMENT,
+  `USERNAME` varchar(32) NOT NULL,
+  `EMAIL` varchar(64) NOT NULL,
+  `MOBILE` varchar(64) DEFAULT NULL,
+  `PASSWORD` varchar(32) NOT NULL,
+  `STATUS` int(4) NOT NULL,
+  `DESCN` varchar(256) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_u_user_group` */
+
+DROP TABLE IF EXISTS `es_u_user_group`;
+
+CREATE TABLE `es_u_user_group` (
+  `USER_ID` int(12) NOT NULL,
+  `GROUP_ID` int(12) NOT NULL,
+  PRIMARY KEY (`USER_ID`,`GROUP_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*Table structure for table `es_u_user_role` */
+
+DROP TABLE IF EXISTS `es_u_user_role`;
+
+CREATE TABLE `es_u_user_role` (
+  `USER_ID` int(12) NOT NULL,
+  `ROLE_ID` int(12) NOT NULL,
+  PRIMARY KEY (`USER_ID`,`ROLE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

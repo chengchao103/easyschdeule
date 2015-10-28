@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+
+	<package name="scheduleMoblie" namespace="/m" extends="schedule-default">
+		<!-- 任务列表 -->
+		<action name="listJob" class="jobAction" method="listJob">
+			<result name="success">/WEB-INF/jsp/mobile/job/listJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 暂停任务 -->
+		<action name="pauseJob" class="jobAction" method="pauseJob">
+			<result name="success" type="redirect"><![CDATA[m/listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 恢复任务 -->
+		<action name="resumeJob" class="jobAction" method="resumeJob">
+			<result name="success" type="redirect"><![CDATA[m/listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 立即执行任务 -->
+		<action name="runJob" class="jobAction" method="runJob">
+			<result name="success" type="redirect"><![CDATA[m/listJob?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 进入修改任务界面 -->
+		<action name="toUpdateJob" class="addJobAction" method="toUpdateJob">
+			<result name="success">/WEB-INF/jsp/mobile/job/addJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 新增任务 -->
+		<action name="addJob" class="addJobAction" method="addJob">
+			<result name="success" type="redirect"><![CDATA[m/listJob?query.jobgroup=${jobDetail.group}]]></result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 进入Cron表达式说明页 -->
+		<action name="toViewTriggerHelp" class="addJobAction" method="toViewTriggerHelp">
+			<result name="success">/WEB-INF/jsp/mobile/job/addJobTriggerHelp.jsp</result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 异步任务列表 -->
+		<action name="listAsyncJobQueues" class="asyncJobQueueAction"
+			method="listAsyncJobQueues">
+			<result name="success">/WEB-INF/jsp/mobile/asyncjobqueue/listAsyncJobQueue.jsp</result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 任务订阅-->
+		<action name="listSub" class="userSubAction" method="listSub">
+			<result name="success">/WEB-INF/jsp/mobile/job/listSub.jsp</result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 手动发送任务处理消息 -->
+		<action name="sendSubMsg" class="userSubAction" method="sendSubMsg">
+			<result name="success" type="redirect"><![CDATA[m/listSub?query.jobgroup=${jobGroup}]]></result>
+			<result name="error">/WEB-INF/jsp/mobile/error/error.jsp</result>
+		</action>
+		<!-- 异步任务列表 -->
+		<action name="listAsyncJobQueues" class="asyncJobQueueAction"
+			method="listAsyncJobQueues">
+			<result name="success">/WEB-INF/jsp/mobile/jobqueue/listAsyncJobQueue.jsp</result>
+		</action>
+	</package>
+	
+	<package name="uuserMoblie" namespace="/m" extends="schedule-default">
+		<action name="listUser" class="uUserAction" method="listUser">
+			<result name="success">/WEB-INF/jsp/mobile/uuser/listUser.jsp</result>
+		</action>
+	</package>
+</struts>

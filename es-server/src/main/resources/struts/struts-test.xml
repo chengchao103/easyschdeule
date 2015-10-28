@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+    <package name="com.taobao.ad.easyschedule.schedule.test" extends="schedule-default">
+
+        <!-- 测试任务 -->
+        <!--<action name="testDoStdJob" class="com.taobao.ad.easyschedule.test.TestAction" method="testDoStdJob">
+      <result name="success">/WEB-INF/jsp/test/testDoStdJob.jsp</result>
+      <result name="error">/WEB-INF/jsp/error/error.jsp</result>
+      </action>-->
+
+        <!-- 异步任务回调测试 -->
+        <action name="testCallbackAsynJob" class="com.taobao.ad.easyschedule.test.TestAction"
+                method="testCallbackAsynJob">
+            <result name="success">/WEB-INF/jsp/test/testCallbackAsynJob.jsp</result>
+            <result name="error">/WEB-INF/jsp/error/error.jsp</result>
+        </action>
+        <!-- 异步任务请求测试 -->
+        <action name="testRequestAsynJob" class="com.taobao.ad.easyschedule.test.TestAction" method="testRequestAsynJob">
+            <result name="success">/WEB-INF/jsp/test/testRequestAsynJob.jsp</result>
+            <result name="error">/WEB-INF/jsp/error/error.jsp</result>
+        </action>
+        <!-- 数据监控请求测试 -->
+        <action name="testDataTrackingJob" class="com.taobao.ad.easyschedule.test.TestAction" method="testDataTrackingJob">
+            <result name="success">/WEB-INF/jsp/test/testDataTrackingJob.jsp</result>
+            <result name="error">/WEB-INF/jsp/error/error.jsp</result>
+        </action>
+    </package>
+    
+    <package name="testAjax" extends="schedule-json-default">
+        <!-- http测试任务 -->
+        <action name="testDoStdJob" class="com.taobao.ad.easyschedule.test.TestAction" method="testDoStdJob">
+            <interceptor-ref name="scheduleNotLoginStack"></interceptor-ref>
+            <result name="success" type="json">
+                <param name="root">httpJobResult</param>
+            </result>
+        </action>
+        <!-- http测试老短信接口 -->
+        <action name="testSendSms" class="com.taobao.ad.easyschedule.test.TestAction" method="testSendSms">
+            <interceptor-ref name="scheduleNotLoginStack"></interceptor-ref>
+            <result name="success" type="json">
+                <param name="root">httpJobResult</param>
+            </result>
+        </action>
+        <!-- 生成时间令牌 -->
+        <action name="generateToken" class="com.taobao.ad.easyschedule.test.TestAction" method="generateToken">
+            <result name="success" type="json">
+                <param name="root">ajaxResult</param>
+            </result>
+        </action>
+    </package>
+</struts>

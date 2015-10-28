@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.action.excludePattern" value="/doScheduleJob.*"></constant>
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<include file="/struts/struts-uresc.xml" />
+	<include file="/struts/struts-urole.xml" />
+	<include file="/struts/struts-uuser.xml" />
+	<include file="/struts/struts-logs.xml" />
+	<include file="/struts/struts-admin.xml" />
+	<include file="/struts/struts-mobile.xml" />
+	<include file="/struts/struts-schedule.xml" />
+	<include file="/struts/struts-report.xml" />
+	<include file="/struts/struts-code.xml" />
+	<include file="/struts/struts-config.xml" />
+	<include file="/struts/struts-test.xml" />
+	<package name="schedule-default" extends="struts-default">
+		<interceptors>
+			<interceptor name="logoutInterceptor" class="logoutInterceptor" />
+			<interceptor name="loginInterceptor" class="loginInterceptor" />
+			<interceptor name="securityInterceptor" class="securityInterceptor" />
+
+			<interceptor-stack name="scheduleDefaultStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="logoutInterceptor" />
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="securityInterceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="scheduleDefaultCsrfStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="token" />
+				<interceptor-ref name="logoutInterceptor" />
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="securityInterceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="scheduleStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="logoutInterceptor" />
+				<interceptor-ref name="loginInterceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="scheduleNotLoginStack">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+		<default-interceptor-ref name="scheduleDefaultStack" />
+		<global-results>
+			<result name="authError">/WEB-INF/jsp/error/accessdenied.jsp</result>
+			<result name="Exception">/WEB-INF/jsp/error/error.jsp</result>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="com.ali.luna.crm.web.commons.aop.AuthException" result="AuthException" />
+			<exception-mapping exception="java.lang.Exception" result="Exception" />
+		</global-exception-mappings>
+	</package>
+
+	<package name="schedule-json-default" extends="json-default">
+		<interceptors>
+			<interceptor name="logoutInterceptor" class="logoutInterceptor" />
+			<interceptor name="loginInterceptor" class="loginInterceptor" />
+			<interceptor name="securityInterceptor" class="securityInterceptor" />
+			<interceptor-stack name="scheduleDefaultStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="logoutInterceptor" />
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="securityInterceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="scheduleStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="logoutInterceptor" />
+				<interceptor-ref name="loginInterceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="scheduleNotLoginStack">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="scheduleDefaultStack" />
+		<global-results>
+			<result name="Exception" type="json">
+				<param name="root">exception</param>
+			</result>
+			<result name="AuthException" type="json">
+				<param name="root">exception</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="com.taobao.ad.easyschedule.interceptor.AuthException" result="AuthException" />
+			<exception-mapping exception="java.lang.Exception" result="Exception" />
+		</global-exception-mappings>
+	</package>
+</struts>

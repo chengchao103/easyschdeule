@@ -1,0 +1,190 @@
+*{
+font-size: 13px;
+}
+
+a {
+	font-family:verdana,arial,helvetica,sans-serif; 
+	font-size:13px;
+	/*color:#000000;*/
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+.text {  font-family: "verdana", "Arial", "Helvetica"; font-size: 12pt;  /*color: #585858*/}
+
+
+.line22 { LINE-HEIGHT: 20px}
+.line12 { LINE-HEIGHT: 12px}
+.line18 { LINE-HEIGHT: 18px}
+
+.texttriggerhelp {
+	font-family:verdana,arial,helvetica,sans-serif; 
+	font-size:13px;
+	color:#000000;
+}
+
+body{
+   /*background-image: url(/es/share/images/modulebg.jpg);
+   background-repeat:repeat-x;*/
+   font-size: 12px;
+}
+
+body,table{
+    /*font-size:14px;*/
+}
+table{
+    /*table-layout:fixed;*/
+    empty-cells:show; 
+    border-collapse: collapse;
+    background-color:white;
+   /* margin:0 auto;*/
+}
+td{
+    height:27px;
+    vertical-align: middle;
+}
+h1,h2,h3{
+    font-size:12px;
+    margin:0;
+    padding:0;
+}
+
+.title { background: #FFF; border: 1px solid #9DB3C5; padding: 1px; width:90%;margin:20px auto; }
+    .title h1 { line-height: 31px; text-align:center;  background: #2F589C url(th_bg2.gif); background-repeat: repeat-x; background-position: 0 0; color: #FFF; }
+        .title th, .title td { border: 1px solid #CAD9EA; padding: 5px; }
+
+
+table.t1{
+    border:1px solid #cad9ea;
+    /*color:#666;*/
+}
+table.t1 th {
+    background-image: url(/es/share/images/k1_bg.gif);
+    background-repeat::repeat-x;
+    text-align:left;
+    height:25px;
+}
+table.t1 td,table.t1 th{
+    /*border:1px solid #cad9ea;*/
+    border:1px solid #cad9ff;
+    /*padding:0 1em 0;*/
+    padding:9px 6px 9px;
+}
+table.t1 tr.row1{
+    background-color:#f8f8f8;
+    /*background-color: #f5fafe;*/
+    /*background-color: #DFF2FD;*/
+    /*background-color:expression('#F8F8F8,white'.split(',')[rowIndex%2]); */
+}
+table.t1 tr.row2{
+    background-color:white;
+    /*background-color: #f5fafe;*/
+    /*background-color: #DFF2FD;*/
+    /*background-color:expression('#F8F8F8,white'.split(',')[rowIndex%2]); */
+}
+table.t1 tr.m1{
+    background-color: #efefef;
+    /*background-color: #DFF2FD;*/
+}
+
+table.t1add{
+    border:1px solid #cad9ea;
+    /*color:#666;*/
+}
+table.t1add th {
+	text-align: left;
+    background-image: url(/es/share/images/k1_bg.gif);
+    background-repeat::repeat-x;
+    height:35px;
+}
+table.t1add td,table.t1add th{
+    /*border:1px solid #cad9ea;*/
+    border:1px solid #cad9ff;
+    /*padding:0 1em 0;*/
+    padding:8px 6px 8px;
+    border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+tbody tr td{
+	text-align: left;
+}
+table.t1add tr.row1add{
+    background-color:#f8f8f8;
+    /*background-color: #f5fafe;*/
+    /*background-color: #DFF2FD;*/
+    border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+table.t1add tr.row2add{
+    background-color:white;
+    /*background-color: #f5fafe;*/
+    /*background-color: #DFF2FD;*/
+    border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+table.t1add tr.m1add{
+    background-color: #efefef;
+    /*background-color: #DFF2FD;*/
+    border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+
+
+table.t2{
+    border:1px solid #9db3c5;
+    /*color:#666;*/
+}
+table.t2 th {
+    background-image: url(th_bg2.gif);
+    background-repeat::repeat-x;
+    height:30px;
+    /*color:#fff;*/
+}
+table.t2 td{
+    border:1px dotted #cad9ea;
+    padding:0 2px 0;
+}
+table.t2 th{
+    border:1px solid #a7d1fd;
+    padding:0 2px 0;
+}
+table.t2 tr.a1{
+    background-color:#e8f3fd;
+}
+
+
+
+table.t3{
+    border:1px solid #fc58a6;
+    color:#720337;
+}
+table.t3 th {
+    background-image: url(th_bg3.gif);
+    background-repeat::repeat-x;
+    height:30px;
+    color:#35031b;
+}
+table.t3 td{
+    border:1px dashed #feb8d9;
+    padding:0 1.5em 0;
+}
+table.t3 th{
+    border:1px solid #b9f9dc;
+    padding:0 2px 0;
+}
+table.t3 tr.a1{
+    background-color:#fbd8e8;
+}
+

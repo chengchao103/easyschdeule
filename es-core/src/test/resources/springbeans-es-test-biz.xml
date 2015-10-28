@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<bean id="jobListener" class="com.taobao.ad.easyschedule.listener.GlobalJobListener">
+	</bean>
+
+
+
+	<bean id="easyscheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="dataSource">
+			<ref bean="easyscheduleDataSource" />
+		</property>
+		<property name="autoStartup" value="false" />
+		<property name="schedulerFactoryClass" value="org.quartz.impl.StdSchedulerFactory"></property>
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="globalJobListeners">
+			<list>
+				<ref bean="jobListener" />
+			</list>
+		</property>
+	</bean>
+	<bean id="reportJobBO"
+		class="com.taobao.ad.easyschedule.bo.reportjob.impl.ReportJobBOImpl" />
+	<bean id="reportJobRtBO"
+		class="com.taobao.ad.easyschedule.bo.reportjobrt.impl.ReportJobRtBOImpl" />
+	<bean id="repeatAlarmBO"
+		class="com.taobao.ad.easyschedule.bo.repeatalarm.impl.RepeatAlarmBOImpl" />
+
+	<bean id="messageManager"
+		class="com.taobao.ad.easyschedule.manager.message.impl.MessageManagerImpl" />
+	<bean id="logsBO" class="com.taobao.ad.easyschedule.bo.logs.impl.LogsBOImpl" />
+	<bean id="dataTrackingJobBO"
+		class="com.taobao.ad.easyschedule.bo.datatracking.impl.DataTrackingJobBOImpl" />
+	<bean id="codeBO" class="com.taobao.ad.easyschedule.bo.code.impl.CodeBOImpl" />
+	<bean id="configBO" class="com.taobao.ad.easyschedule.bo.config.impl.ConfigBOImpl" />
+	<bean id="dataTrackingLogBO"
+		class="com.taobao.ad.easyschedule.bo.datatrackinglog.impl.IDataTrackingLogBOImpl" />
+	<bean id="jobUserSubBO"
+		class="com.taobao.ad.easyschedule.bo.jobusersub.impl.JobUserSubBOImpl" />
+
+	<bean id="jobBO" class="com.taobao.ad.easyschedule.bo.job.impl.JobBOImpl" />
+
+	<bean id="triggerBO" class="com.taobao.ad.easyschedule.bo.trigger.impl.TriggerBOImpl" />
+
+	<bean id="rescBO" class="com.taobao.ad.easyschedule.bo.uresc.impl.URescBOImpl" />
+
+	<bean id="asyncJobBO"
+		class="com.taobao.ad.easyschedule.bo.asyncjob.impl.AsyncJobBOImpl" />
+
+	<bean id="roleBO" class="com.taobao.ad.easyschedule.bo.urole.impl.URoleBOImpl" />
+
+	<bean id="userBO" class="com.taobao.ad.easyschedule.bo.uuser.impl.UUserBOImpl" />
+
+
+</beans>

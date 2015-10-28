@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<!--DAO 配置-->
+	<bean id="rescDAO" class="com.taobao.ad.easyschedule.dao.uresc.impl.JPAURescDAOImpl" />
+	<bean id="roleDAO" class="com.taobao.ad.easyschedule.dao.urole.impl.JPAURoleDAOImpl" />
+
+	<bean id="logsDAO" class="com.taobao.ad.easyschedule.dao.logs.impl.JPALogsDAOImpl" />
+	<bean id="dataTrackingJobDAO"
+		class="com.taobao.ad.easyschedule.dao.datatracking.impl.JPADataTrackingJobDAOImpl" />
+	<bean id="dataTrackingLogDAO"
+		class="com.taobao.ad.easyschedule.dao.datatrackinglog.impl.JPADataTrackingLogDAOImpl" />
+	<bean id="schedulerDAO" class="com.taobao.ad.easyschedule.dao.scheduler.impl.JPASchedulerDAOImpl" />
+	<bean id="jobDAO" class="com.taobao.ad.easyschedule.dao.job.impl.JPAJobDAOImpl" />
+	<bean id="triggerDAO"
+		class="com.taobao.ad.easyschedule.dao.trigger.dao.impl.JPATriggerDAOImpl" />
+	<bean id="asyncJobQueueDAO"
+		class="com.taobao.ad.easyschedule.dao.asyncjobqueue.impl.JPAAsyncJobQueueDAOImpl" />
+
+	<bean id="repeatAlarmDAO" class="com.taobao.ad.easyschedule.dao.repeatalarm.impl.RepeatAlarmDAOImpl" />
+	<bean id="codeDAO" class="com.taobao.ad.easyschedule.dao.code.impl.JPACodeDAOImpl" />
+	<bean id="userDAO" class="com.taobao.ad.easyschedule.dao.uuser.impl.JPAUUserDAOImpl" />
+	<bean id="configDAO"
+		class="com.taobao.ad.easyschedule.dao.config.impl.JPAConfigDAOImpl" />
+	<bean id="jobUserSubDAO"
+		class="com.taobao.ad.easyschedule.dao.jobusersub.impl.JPAJobUserSubDAOImpl" />
+	<bean id="reportJobRtDAO"
+		class="com.taobao.ad.easyschedule.dao.reportjobrt.impl.JPAReportJobRtDAOImpl" />
+	<bean id="reportJobDAO"
+		class="com.taobao.ad.easyschedule.dao.reportjob.impl.JPAReportJobDAOImpl" />
+
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="easyscheduleDataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="MYSQL" />
+				<property name="generateDdl" value="false" />
+				<property name="showSql" value="false" />
+			</bean>
+		</property>
+	</bean>
+</beans>

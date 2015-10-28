@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="urole" extends="schedule-default">
+		<action name="listRole" class="uRoleAction" method="listRole">
+			<result name="success">/WEB-INF/jsp/urole/listRole.jsp</result>
+		</action>
+		
+		<action name="viewAddRole" class="uRoleAction" method="viewAddRole">
+			<result name="success">/WEB-INF/jsp/urole/addRole.jsp</result>
+		</action>
+		
+		<action name="addRole" class="uRoleAction" method="addRole">
+			<result name="success" type="chain">
+				<param name="actionName">listRole</param>
+			</result>
+		</action>
+		
+		<action name="viewUpdateRole" class="uRoleAction" method="viewUpdateRole">
+			<result name="success">/WEB-INF/jsp/urole/updateRole.jsp</result>
+		</action>
+		
+		<action name="updateRole" class="uRoleAction" method="updateRole">
+			<result name="success" type="chain">
+				<param name="actionName">listRole</param>
+			</result>
+		</action>
+		
+		<action name="deleteRole" class="uRoleAction" method="deleteRole">
+			<result name="success" type="chain">
+				<param name="actionName">listRole</param>
+			</result>
+		</action>
+	</package>	
+</struts>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="report" namespace="/" extends="schedule-default">
+		<!-- 任务报表 -->
+		<action name="viewReportJob" class="reportJobAction" method="viewReportJob">
+ 			<result name="success">/WEB-INF/jsp/report/viewReportJob.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+		
+		<action name="viewReportJobJson" class="reportJobAction" method="viewReportJobJson">
+		</action>
+		<!-- 任务报表,任务维度 -->
+		<action name="listReportJobRt" class="reportJobAction" method="listReportJobRt">
+			<result name="success">/WEB-INF/jsp/report/listReportJobRt.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+	</package>
+
+	<package name="reportAjax" extends="schedule-json-default">
+		<!--初始化报表数据 -->
+		<action name="initJobReport" class="reportJobAction" method="initJobReport">
+			<interceptor-ref name="scheduleNotLoginStack" />
+			<result name="success" type="json">
+				<param name="root">jobResult</param>
+			</result>
+		</action>
+	</package>
+</struts>

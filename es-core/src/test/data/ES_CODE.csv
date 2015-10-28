@@ -1,0 +1,67 @@
+CODEKEY,KEYCODE,KEYNAME,KEYDESC,SORTNUM
+DATATRACKINGJOB_JOBDATA,completeTime,30000,异步任务最大超时时间,20
+DATATRACKINGJOB_JOBDATA,connTimeout,3000,任务超时时间,30
+DATATRACKINGJOB_JOBDATA,dataSource,tbsDSOracle,数据源,12
+DATATRACKINGJOB_JOBDATA,dataSourceType,1,数据源类型,16
+DATATRACKINGJOB_JOBDATA,isEqualLevel1,4,警告级别：等于该值告警(优先级:1),4
+DATATRACKINGJOB_JOBDATA,isEqualLevel2,7,错误级别：等于该值告警(优先级:1),7
+DATATRACKINGJOB_JOBDATA,isGreaterEqualLevel1,6,警告级别：大于等于该值告警(优先级:3),6
+DATATRACKINGJOB_JOBDATA,isGreaterEqualLevel2,9,错误级别：大于等于该值告警(优先级:3),9
+DATATRACKINGJOB_JOBDATA,isLessEqualLevel1,5,警告级别：小于等于该值告警(优先级:2),5
+DATATRACKINGJOB_JOBDATA,isLessEqualLevel2,8,错误级别：小于等于该值告警(优先级:2),8
+DATATRACKINGJOB_JOBDATA,retries,0,任务失败重试次数,31
+DATATRACKINGJOB_JOBDATA,synchronous,true,任务执行方式（是：同步；否：异步）,2
+DATATRACKINGJOB_JOBDATA,targetUrl,http://127.0.0.1/tbs/doDTJob,任务调用地址,1
+DATATRACKINGJOB_JOBDATA,trackingSql,SELECT CEIL( RAND()*100),trackingSql,3
+HSFJOB_JOBDATA,beanVersion,1.0,任务调用对象版本,2
+HSFJOB_JOBDATA,checkResult,true,任务是否需要验证返回的结果,12
+HSFJOB_JOBDATA,connTimeout,3000,任务超时时间,30
+HSFJOB_JOBDATA,parameter,a=1&=2,任务附加参数,3
+HSFJOB_JOBDATA,retries,0,任务失败重试次数,31
+HSFJOB_JOBDATA,targetBean,aaa,任务调用对象,1
+HTTPJOB_JOBDATA,checkResult,true,任务是否需要验证返回的结果,12
+HTTPJOB_JOBDATA,completeTime,30000,异步任务最大超时时间,20
+HTTPJOB_JOBDATA,connTimeout,3000,任务超时时间,30
+HTTPJOB_JOBDATA,parameter,a=1&=2,任务附加参数,3
+HTTPJOB_JOBDATA,retries,0,任务失败重试次数,31
+HTTPJOB_JOBDATA,runType,hash,"concurrent多个URL同时触发,hash随机选择一个",15
+HTTPJOB_JOBDATA,synchronous,true,任务执行方式（是：同步；否：异步）,2
+HTTPJOB_JOBDATA,targetUrl,http://127.0.0.1/tbs/testDoStdJob,任务调用地址,1
+HTTPJOB_JOBDATA,tokenValidate,true,任务签名验证,11
+JOB_GROUP,110,110 - 品牌CRM,110 - 品牌CRM,110
+JOB_GROUP,120,120 - 直通车CRM,120 - 直通车CRM,120
+JOB_GROUP,125,125 - 直通车前端,125 - 直通车前端,125
+JOB_GROUP,130,130 - PRM系统,130 - PRM系统,130
+JOB_GROUP,140,140 - 钻石展位,140 - 钻石展位,140
+JOB_GROUP,150,150 - 淘客系统,150 - 淘客系统,150
+JOB_GROUP,160,160 - 淘代码,160 - 淘代码,160
+JOB_GROUP,170,170 - 淘宝联盟,170 - 淘宝联盟,170
+JOB_GROUP,180,180 - BO系统,180 - BO系统,180
+JOB_GROUP,190,190 - Tanx系统,190 - Tanx系统,190
+JOB_GROUP,200,200 - 代理监控,200 - 代理监控,200
+JOB_GROUP,999,999 - 其它,999 - 其它,999
+MINAJOB_JOBDATA,checkResult,true,任务是否需要验证返回的结果,6
+MINAJOB_JOBDATA,connectionType,0,连接类型（0：短连接；1：长连接）,3
+MINAJOB_JOBDATA,connTimeout,30000,任务超时时间,10
+MINAJOB_JOBDATA,invokeClassName,,MINA调用的类名称,8
+MINAJOB_JOBDATA,invokeMethodName,,MINA调用的方法名称,9
+MINAJOB_JOBDATA,parameter,a=1&b=2,任务附加参数,4
+MINAJOB_JOBDATA,retries,0,任务失败重试次数,11
+MINAJOB_JOBDATA,runType,hash,hash：随机选择一个任务节点；concurrent：并发执行所有任务节点,7
+MINAJOB_JOBDATA,synchronous,true,任务执行方式（同步：true；异步：false）,2
+MINAJOB_JOBDATA,targetUrl,127.0.0.1:12211,"mina任务调用地址,多个任务用逗号隔开",1
+MINAJOB_JOBDATA,tokenValidate,true,任务签名验证,5
+SHELLJOB_JOBDATA,checkResult,true,任务是否需要验证返回的结果,12
+SHELLJOB_JOBDATA,completeTime,30000,异步任务完成时间,20
+SHELLJOB_JOBDATA,connectionType,0,连接类型（0：短连接；1：长连接）,3
+SHELLJOB_JOBDATA,connTimeout,3000,任务超时时间,30
+SHELLJOB_JOBDATA,invokeType,"mina,http",选择shell的执行类型,15
+SHELLJOB_JOBDATA,jobCommand,wscript.exe d:avbs.vbs,shell任务指令,5
+SHELLJOB_JOBDATA,retries,0,任务失败重试次数,31
+SHELLJOB_JOBDATA,runType,hash,"concurrent多个URL同时触发,hash随机选择一个",13
+SHELLJOB_JOBDATA,synchronous,true,任务执行方式（是：同步；否：异步）,2
+SHELLJOB_JOBDATA,targetUrl,http://127.0.0.1/tbsagent/doShellJob,任务调用地址,1
+SHELLJOB_JOBDATA,tokenValidate,true,任务签名验证,11
+STOREDPROCEDURE_JOBDATA,jndiName,tbScheduleDataSource,jndi数据源,1
+STOREDPROCEDURE_JOBDATA,storedProcedureCall,call,"存储过程调用函数,都以call开头",2
+STOREDPROCEDURE_JOBDATA,synchronous,true,任务执行方式(同步：true；异步：false),3

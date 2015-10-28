@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="uresc" extends="schedule-default">
+		<action name="listResc" class="uRescAction" method="listResc">
+			<result name="success">/WEB-INF/jsp/uresc/listResc.jsp</result>
+		</action>
+		
+		<action name="viewAddResc" class="uRescAction" method="viewAddResc">
+			<result name="success">/WEB-INF/jsp/uresc/addResc.jsp</result>
+		</action>
+		
+		<action name="addResc" class="uRescAction" method="addResc">
+			<result name="success" type="chain">
+				<param name="actionName">listResc</param>
+			</result>
+		</action>
+		
+		<action name="viewUpdateResc" class="uRescAction" method="viewUpdateResc">
+			<result name="success">/WEB-INF/jsp/uresc/updateResc.jsp</result>
+		</action>
+		
+		<action name="updateResc" class="uRescAction" method="updateResc">
+			<result name="success" type="chain">
+				<param name="actionName">listResc</param>
+			</result>
+		</action>
+		
+		<action name="deleteResc" class="uRescAction" method="deleteResc">
+			<result name="success" type="chain">
+				<param name="actionName">listResc</param>
+			</result>
+		</action>
+	</package>	
+</struts>

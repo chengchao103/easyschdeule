@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+	<bean id="uRescAction" class="com.taobao.ad.easyschedule.action.uresc.URescAction" scope="prototype"/>
+	<bean id="uRoleAction" class="com.taobao.ad.easyschedule.action.urole.URoleAction" scope="prototype"/>
+	<bean id="uUserAction" class="com.taobao.ad.easyschedule.action.uuser.UUserAction" scope="prototype"/>
+	<bean id="adminAction" class="com.taobao.ad.easyschedule.action.admin.AdminAction" scope="prototype"/> 
+	<bean id="logAction" class="com.taobao.ad.easyschedule.action.logs.LogsAction" scope="prototype"/> 
+	<bean id="jobAction" class="com.taobao.ad.easyschedule.action.job.JobAction" scope="prototype"/> 
+	<bean id="addJobAction" class="com.taobao.ad.easyschedule.action.job.AddJobAction" scope="prototype"/> 
+	<bean id="scheduleAction" class="com.taobao.ad.easyschedule.action.schedule.ScheduleAction" scope="prototype"/>
+	<bean id="localScheduleAction" class="com.taobao.ad.easyschedule.action.schedule.LocalScheduleAction" scope="prototype"/> 
+	<bean id="dataTrackingAction" class="com.taobao.ad.easyschedule.action.dataTracking.DataTrackingAction" scope="prototype"/> 
+	<bean id="triggerAction" class="com.taobao.ad.easyschedule.action.trigger.TriggerAction" scope="prototype"/>
+	<bean id="codeAction" class="com.taobao.ad.easyschedule.action.code.CodeAction" scope="prototype"/>
+	<bean id="asyncJobQueueAction" class="com.taobao.ad.easyschedule.action.asyncjobqueue.AsyncJobQueueAction" scope="prototype"/>
+	<bean id="configAction" class="com.taobao.ad.easyschedule.action.config.ConfigAction" scope="prototype"/>
+    <bean id="securityBean" class="com.taobao.ad.easyschedule.security.ActionSecurityBean" lazy-init="false">
+        <property name="xml" value="classpath:menu-config.xml"/>
+    </bean>
+    <bean id="userSubAction" class="com.taobao.ad.easyschedule.action.usersub.UserSubAction" scope="prototype"/>
+    <bean id="asynJobAction" class="com.taobao.ad.easyschedule.action.job.AsynJobAction" scope="prototype"/>
+    <bean id="repeatAlarmAction" class="com.taobao.ad.easyschedule.action.repeatalarm.RepeatAlarmAction" scope="prototype"/>
+    <bean id="reportJobAction" class="com.taobao.ad.easyschedule.action.reportjob.ReportJobAction" scope="prototype"/> 
+</beans>

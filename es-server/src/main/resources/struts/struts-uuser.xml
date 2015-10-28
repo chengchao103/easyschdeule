@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="uuser" extends="schedule-default">
+		<action name="listUser" class="uUserAction" method="listUser">
+			<result name="success">/WEB-INF/jsp/uuser/listUser.jsp</result>
+		</action>
+
+		<action name="viewAddUser" class="uUserAction" method="viewAddUser">
+			<result name="success">/WEB-INF/jsp/uuser/addUser.jsp</result>
+		</action>
+
+		<action name="addUser" class="uUserAction" method="addUser">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listUser</param>
+			</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="viewUpdateUser" class="uUserAction" method="viewUpdateUser">
+			<result name="success">/WEB-INF/jsp/uuser/updateUser.jsp</result>
+		</action>
+
+		<action name="updateUser" class="uUserAction" method="updateUser">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listUser</param>
+			</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="viewUpdateCurrentUser" class="uUserAction" method="viewUpdateCurrentUser">
+			<result name="success">/WEB-INF/jsp/uuser/updateCurrentUser.jsp</result>
+			<result name="error">/WEB-INF/jsp/error/accessdenied.jsp</result>
+		</action>
+
+		<action name="updateCurrentUser" class="uUserAction" method="updateCurrentUser">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listUser</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/error/accessdenied.jsp</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="deleteUser" class="uUserAction" method="deleteUser">
+			<result name="success" type="chain">
+				<param name="actionName">listUser</param>
+			</result>
+		</action>
+	</package>
+</struts>

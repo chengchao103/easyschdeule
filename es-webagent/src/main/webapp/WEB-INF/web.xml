@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<servlet>
+		<servlet-name>ShellJobServlet</servlet-name>
+		<servlet-class>com.taobao.ad.es.webagent.servlet.ShellJobServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShellJobServlet</servlet-name>
+		<url-pattern>/doShellJob</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>FileLineCountJobServlet</servlet-name>
+		<servlet-class>com.taobao.ad.es.webagent.servlet.FileLineCountJobServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileLineCountJobServlet</servlet-name>
+		<url-pattern>/doLineCountJob</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DTJobServlet</servlet-name>
+		<servlet-class>com.taobao.ad.es.webagent.servlet.DTJobServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DTJobServlet</servlet-name>
+		<url-pattern>/doDTJob</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>StoredProcedureJobServlet</servlet-name>
+		<servlet-class>com.taobao.ad.es.webagent.servlet.StoredProcedureJobServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StoredProcedureJobServlet</servlet-name>
+		<url-pattern>/doSPJob</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.xml</param-value>
+	</context-param>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>

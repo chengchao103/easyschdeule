@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<!-- 把本配置文件复制到es-ds-context.xml中定义的位置，再修改成自定义数据源  -->
+ 	<!-- Mysql template -->
+ 	<bean id="esMysqlDS-ds2" class="org.apache.commons.dbcp.BasicDataSource" lazy-init="true">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/java" />
+		<property name="username" value="root" />
+		<property name="password" value="test" />
+		<property name="maxActive" value="3"/>
+		<property name="testOnReturn" value="true"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testWhileIdle" value="true"/>
+		<property name="validationQuery" value="select 1 from dual"/>
+	</bean>
+
+	<!-- Oracle template -->
+     <bean id="esOracleDS-ds3" class="org.apache.commons.dbcp.BasicDataSource" lazy-init="true">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:estestdb"/>
+        <property name="username" value="alimm"/>
+        <property name="password" value="alimm"/>
+        <property name="maxActive" value="3"/>
+        <property name="testOnReturn" value="true"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testWhileIdle" value="true"/>
+		<property name="validationQuery" value="select 1 from dual"/>
+    </bean>
+</beans>

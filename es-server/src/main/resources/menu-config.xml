@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+   
+    <item name="实例管理">
+        <item name="实例列表" link="listInstance">
+            <module id="25" name="startInstance"/>
+            <module id="26" name="stopInstance"/>
+            <module id="27" name="pauseInstance"/>
+            <module id="28" name="waitAndStopSchedulerInstance"/>
+        </item>
+    </item>
+    <item name="任务管理">
+        <item name="任务列表" link="listJob">
+        	<module id="4" name="runJob"/>
+        	<module id="8" name="deleteJob"/>
+        	<module id="1" name="addTestJob"/>
+        </item>
+        <item name="添加HTTP任务" link="toAddHttpJob">
+            <module id="2" name="addJob"/>
+        </item>
+        <item name="添加SHELL任务" link="toAddShellJob">
+        </item>
+        <item name="添加数据监控" link="toAddDataTrackingJob">
+        </item>
+        <item name="添加存储过程" link="toAddProcedureJob">
+        </item>
+    </item>
+    
+    <item name="触发器管理">
+        <item name="触发器列表" link="listTrigger">
+            <module id="5" name="恢复"/>
+            <module id="6" name="暂停"/>
+            <module id="7" name="执行"/>
+        </item>
+    </item>
+    
+    <item name="操作历史">
+        <item name="历史列表" link="listLogs">
+            <module id="9" name="删除"/>
+        </item>
+    </item>
+    
+    <item name="异步任务">
+        <item name="异步任务列表" link="listAsyncJobQueues">
+        </item>
+    </item>
+    
+    <item name="系统配置">
+         <item name="系统参数" link="viewOtherConfig">
+            <module id="18" name="updateOtherConfig"/>
+        </item>
+        <item name="参数设定" link="listConfig">
+            <module id="14" name="addConfig"/>
+            <module id="16" name="updateConfig"/>
+            <module id="19" name="deleteConfig"/>
+        </item>
+        <item name="编码设定" link="listCode">
+            <module id="21" name="addCode"/>
+            <module id="23" name="updateCode"/>
+            <module id="24" name="deleteCode"/>
+        </item>
+        <item name="用户管理" link="listUser">
+            <module id="11" name="addUser"/>
+            <module id="12" name="deleteUser"/>
+            <module id="29" name="updateUser"/>
+        </item>
+    </item>
+    
+    <item name="调试工具">
+        <item name="异步任务请求测试" link="testRequestAsynJob">
+        </item>
+        <item name="异步任务回调测试" link="testCallbackAsynJob">
+        </item>
+        <item name="数据监控请求测试" link="testDataTrackingJob">
+        </item>
+    </item>
+    <item name="报表管理">
+        <item name="任务汇总报表" link="viewReportJobTotal">
+        </item>
+        <item name="任务详细报表" link="listReportJobRt">
+        </item>
+    </item>
+</menu>

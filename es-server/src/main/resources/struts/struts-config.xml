@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="config" extends="schedule-default">
+		<action name="listConfig" class="configAction" method="listConfig">
+			<result name="success">/WEB-INF/jsp/config/listConfig.jsp</result>
+		</action>
+
+		<action name="viewAddConfig" class="configAction" method="viewAddConfig">
+			<result name="success">/WEB-INF/jsp/config/addConfig.jsp</result>
+		</action>
+
+		<action name="addConfig" class="configAction" method="addConfig">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listConfig</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/config/addConfig.jsp</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="viewUpdateConfig" class="configAction" method="viewUpdateConfig">
+			<result name="success">/WEB-INF/jsp/config/updateConfig.jsp</result>
+		</action>
+
+		<action name="updateConfig" class="configAction" method="updateConfig">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listConfig</param>
+			</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="deleteConfig" class="configAction" method="deleteConfig">
+			<result name="success" type="chain">
+				<param name="actionName">listConfig</param>
+			</result>
+		</action>
+
+		<action name="viewOtherConfig" class="configAction" method="viewOtherConfig">
+			<result name="success">/WEB-INF/jsp/config/otherConfig.jsp</result>
+		</action>
+
+		<action name="updateOtherConfig" class="configAction" method="updateOtherConfig">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listConfig</param>
+			</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+	</package>
+</struts>

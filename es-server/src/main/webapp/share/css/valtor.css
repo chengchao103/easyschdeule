@@ -1,0 +1,42 @@
+.onShow,
+.onFocus,
+.onError,
+.onCorrect,
+.onLoad{
+	display: inline-block;
+	display:-moz-inline-stack;
+	*zoom:1;
+	*display:inline;
+    padding:0 15px 0 25px; 
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+	white-space: nowrap;
+}
+#morerotation_ul li,#moreprice_ul li{
+	padding:0;
+}
+.onShow
+{
+    background:url(../images/onShow.gif) no-repeat; 
+}
+.onFocus
+{
+	border: 1px solid rgb(64, 179, 255);
+    background:#E9F0FF url(../images/onFocus.gif) no-repeat; 
+}
+.onError
+{
+	border: 1px solid rgb(255, 140, 64);
+    background:#FFF2E9 url(../images/onError.gif) no-repeat;
+}
+.onCorrect
+{
+    border:1px solid rgb(77, 191, 0);
+    background:#E9FFEB url(../images/onCorrect.gif) no-repeat;
+}
+.onLoad
+{
+    border:1px solid rgb(77, 191, 0);
+   background:#E9FFEB url(../images/onLoad.gif) no-repeat 3px 3px;
+} 

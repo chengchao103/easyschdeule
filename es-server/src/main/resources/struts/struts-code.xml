@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "classpath:struts-2.1.dtd">
+
+<struts>
+	<package name="code" extends="schedule-default">
+		<action name="listCode" class="codeAction" method="listCode">
+			<result name="success">/WEB-INF/jsp/code/listCode.jsp</result>
+		</action>
+
+		<action name="viewAddCode" class="codeAction" method="viewAddCode">
+			<result name="success">/WEB-INF/jsp/code/addCode.jsp</result>
+		</action>
+
+		<action name="addCode" class="codeAction" method="addCode">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listCode</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/code/addCode.jsp</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="viewUpdateCode" class="codeAction" method="viewUpdateCode">
+			<result name="success">/WEB-INF/jsp/code/updateCode.jsp</result>
+		</action>
+
+		<action name="updateCode" class="codeAction" method="updateCode">
+			<interceptor-ref name="scheduleDefaultCsrfStack" />
+			<result name="success" type="chain">
+				<param name="actionName">listCode</param>
+			</result>
+			<result name="error">/WEB-INF/jsp/code/updateCode.jsp</result>
+			<result name="invalid.token">/WEB-INF/jsp/error/error.jsp</result>
+		</action>
+
+		<action name="deleteCode" class="codeAction" method="deleteCode">
+			<result name="success" type="chain">
+				<param name="actionName">listCode</param>
+			</result>
+		</action>
+	</package>
+</struts>
