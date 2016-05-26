@@ -1,1 +1,1 @@
-1.0.2:增加JOBDATA_DATA_BEANID支持
+   鎵撶畻鎵撶畻1.0.2:锟斤拷锟斤拷JOBDATA_DATA_BEANID支锟斤拷
